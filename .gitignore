@@ -1,0 +1,23 @@
+# Ignore Visual Studio temporary files and folders
+.vs/
+Builds/
+x64/
+Debug/
+Release/
+*.vcxproj.user
+*.suo
+*.user
+*.pdb
+*.obj
+*.log
+*.tlog
+*.ipch
+*.db
+*.opendb
+*.cachefile
+*.ilk
+*.exe
+*.dll
+*.lib
+*.idb
+*.exp
