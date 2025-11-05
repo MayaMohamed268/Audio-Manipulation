@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .vs/
 Builds/
 *.obj
@@ -6,3 +7,7 @@ Builds/
 *.dll
 *.user
 *.vsidx
+=======
+builds/
+.vs/
+>>>>>>> e6abad1e05246dfcff8840732eb2a63e70535a23
