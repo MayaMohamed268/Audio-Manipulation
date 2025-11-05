@@ -1,0 +1,8 @@
+.vs/
+Builds/
+*.obj
+*.pdb
+*.exe
+*.dll
+*.user
+*.vsidx
