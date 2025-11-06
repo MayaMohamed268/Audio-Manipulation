@@ -24,7 +24,7 @@ void PlayerGUI::paint(juce::Graphics& g)
         g.setColour(juce::Colours::lightblue);
         thumbnail.drawChannels(g, getLocalBounds(), 0.0, thumbnail.getTotalLength(), 1.0f);
 
-        // المؤشر الأحمر
+        
         double position = playerAudio.getPosition();
         double length = playerAudio.getLength();
         if (length > 0)
@@ -49,7 +49,7 @@ void PlayerGUI::paint(juce::Graphics& g)
     g.setGradientFill(gradient);
     g.fillAll();
 
-    // خط فاصل ناعم بلون أزرق فاتح
+  
     g.setColour(juce::Colours::skyblue.withAlpha(0.5f));
     g.drawLine(20, 90, getWidth() - 20, 90, 1.5f);
 
