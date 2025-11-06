@@ -1,57 +1,44 @@
 #pragma once
 #include <JuceHeader.h>
 
-class PlayerAudio
+class PlayerAudio : public juce::AudioSource
 {
 public:
     PlayerAudio();
-    ~PlayerAudio();
+    ~PlayerAudio() override;
 
-    void prepareToPlay(int samplesPerBlockExpected, double sampleRate);
-    void getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill);
-    void releaseResources();
-    bool loadFile(const juce::File& file);
+    bool loadFile(const juce::File& file);   
+    void prepareToPlay(int samplesPerBlockExpected, double sampleRate) override;
+    void getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill) override;
+    void releaseResources() override;
+
     void play();
-    void stop();
-    void setGain(float gain);
-    void setPosition(double pos);
-    double getPosition() const;
-    double getLength() const;
-    void toggleMute();
-    bool isMuted = false;
-    float lastV = 0.5f;
-    double getLengthInSeconds() const;
     void pause();
+    void stop();
     void goToStart();
     void goToEnd();
-    void setLooping(bool shouldLoop);
-    void setLoopPoints(double start, double end);
-    void enableLoop(bool shouldLoop);
-    double getLoopStart() const;
-    double getLoopEnd() const;
-    void setLoopSegmentEnabled(bool shouldLoop);
-    bool isLoopSegmentEnabled() const { return loopSegment; }
 
+    void setGain(float g);
+
+    double getPosition() const;
+    double getLength() const;
+    bool isPlaying() const;
 
     juce::String getTitle() const { return title; }
     juce::String getArtist() const { return artist; }
     juce::String getAlbum() const { return album; }
     double getDuration() const { return duration; }
 
-    void setSpeed(double newSpeed);
     juce::AudioFormatManager& getFormatManager() { return formatManager; }
 
 private:
     juce::AudioFormatManager formatManager;
     std::unique_ptr<juce::AudioFormatReaderSource> readerSource;
     juce::AudioTransportSource transportSource;
-    juce::String title;
-    juce::String artist;
-    juce::String album;
-    double duration = 0.0;
-    bool loopSegment = false;
-    double loopStart = 0.0;
-    double loopEnd = 0.0;
 
-    std::unique_ptr<juce::ResamplingAudioSource> resampleSource;
+    // metadata
+    juce::String title{ "Unknown" };
+    juce::String artist{ "Unknown" };
+    juce::String album{ "Unknown" };
+    double duration{ 0.0 };
 };

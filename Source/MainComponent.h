@@ -2,7 +2,6 @@
 #include <JuceHeader.h>
 #include "PlayerGUI.h"
 
-
 class MainComponent : public juce::AudioAppComponent
 {
 public:
@@ -17,8 +16,8 @@ public:
     void resized() override;
 
 private:
-    PlayerGUI player1;
-    PlayerGUI player2;
+    PlayerGUI playerGui;
+    juce::AudioDeviceManager audioDeviceManager;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainComponent)
 };

@@ -1,42 +1,42 @@
-#include <JuceHeader.h>
 #include "MainComponent.h"
 
-class MyApp : public juce::JUCEApplication
+MainComponent::MainComponent()
 {
-public:
-    const juce::String getApplicationName() override { return "Two Player Audio"; }
-    const juce::String getApplicationVersion() override { return "1.0"; }
+    addAndMakeVisible(playerGui);
+   
 
-    void initialise(const juce::String&) override
-    {
-        mainWindow = std::make_unique<MainWindow>(getApplicationName());
-    }
 
-    void shutdown() override
-    {
-        mainWindow = nullptr;
-    }
 
-    class MainWindow : public juce::DocumentWindow
-    {
-    public:
-        MainWindow(juce::String name) :
-            DocumentWindow(name, juce::Colours::darkgrey, allButtons)
-        {
-            setUsingNativeTitleBar(true);
-            setContentOwned(new MainComponent(), true);
-            centreWithSize(1200, 400);
-            setVisible(true);
-        }
+    setAudioChannels(0, 2);
+}
 
-        void closeButtonPressed() override
-        {
-            juce::JUCEApplication::getInstance()->systemRequestedQuit();
-        }
-    };
+MainComponent::~MainComponent()
+{
+    shutdownAudio();
+}
 
-private:
-    std::unique_ptr<MainWindow> mainWindow;
-};
+void MainComponent::prepareToPlay(int samplesPerBlockExpected, double sampleRate)
+{
+    playerGui.prepareToPlay(samplesPerBlockExpected, sampleRate);
+}
 
-START_JUCE_APPLICATION(MyApp)
+void MainComponent::getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill)
+{
+    bufferToFill.clearActiveBufferRegion();
+    playerGui.getNextAudioBlock(bufferToFill);
+}
+
+void MainComponent::releaseResources()
+{
+    playerGui.releaseResources();
+}
+
+void MainComponent::paint(juce::Graphics& g)
+{
+    g.fillAll(juce::Colours::black);
+}
+
+void MainComponent::resized()
+{
+    playerGui.setBounds(getLocalBounds());
+}
