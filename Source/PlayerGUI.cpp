@@ -128,7 +128,7 @@ PlayerGUI::PlayerGUI()
     addAndMakeVisible(playlistBox);
     playlistBox.addListener(this);
 
-    // Timer
+   
     startTimerHz(10);
 
     formatManager.registerBasicFormats();
@@ -137,7 +137,7 @@ PlayerGUI::PlayerGUI()
 
     addAndMakeVisible(setAButton);
     setAButton.onClick = [this] {
-        playerAudio.setLoopPoints(playerAudio.getPosition(), playerAudio.getLength()); // مؤقت
+        playerAudio.setLoopPoints(playerAudio.getPosition(), playerAudio.getLength());
         };
 
     addAndMakeVisible(setBButton);
@@ -156,11 +156,11 @@ PlayerGUI::PlayerGUI()
             b.setColour(juce::TextButton::textColourOffId, juce::Colours::white);
             b.setColour(juce::TextButton::buttonOnColourId, c.brighter(0.2f));
         };
-    styleButton(loadButton, juce::Colour::fromRGB(0, 102, 204));   // Blue
-    styleButton(playButton, juce::Colour::fromRGB(0, 153, 255));   // Sky blue
-    styleButton(pauseButton, juce::Colour::fromRGB(0, 128, 255));  // Mid blue
-    styleButton(stopButton, juce::Colour::fromRGB(0, 51, 153));    // Deep blue
-    styleButton(loopButton, juce::Colour::fromRGB(0, 204, 255));   // Cyan blue
+    styleButton(loadButton, juce::Colour::fromRGB(0, 102, 204));   
+    styleButton(playButton, juce::Colour::fromRGB(0, 153, 255));   
+    styleButton(pauseButton, juce::Colour::fromRGB(0, 128, 255));  
+    styleButton(stopButton, juce::Colour::fromRGB(0, 51, 153));    
+    styleButton(loopButton, juce::Colour::fromRGB(0, 204, 255));   
 
 }
 
@@ -195,7 +195,7 @@ void PlayerGUI::resized()
 
 void PlayerGUI::buttonClicked(juce::Button* button)
 {
-    // 🔹 Load single file
+  
     if (button == &loadButton)
     {
         fileChooser = std::make_unique<juce::FileChooser>("Select an audio file", juce::File{}, ".mp3;.wav");
@@ -238,7 +238,7 @@ void PlayerGUI::buttonClicked(juce::Button* button)
             });
     }
 
-    // 🔹 Playlist add multiple files
+   
     if (button == &addButton)
     {
         fileChooser = std::make_unique<juce::FileChooser>(
@@ -262,7 +262,6 @@ void PlayerGUI::buttonClicked(juce::Button* button)
             });
     }
 
-    // 🔹 Playback controls
     if (button == &playButton) playerAudio.play();
     if (button == &pauseButton) playerAudio.pause();
     if (button == &stopButton) { playerAudio.stop(); playerAudio.setPosition(0.0); }
@@ -270,7 +269,7 @@ void PlayerGUI::buttonClicked(juce::Button* button)
     if (button == &startButton) playerAudio.goToStart();
     if (button == &endButton) playerAudio.goToEnd();
 
-    // 🔹 Mute toggle
+   
     if (button == &muteButton)
     {
         playerAudio.toggleMute();
@@ -287,7 +286,6 @@ void PlayerGUI::buttonClicked(juce::Button* button)
         }
     }
 
-    // 🔹 Loop toggle
     if (button == &loopButton)
     {
         isLooping = !isLooping;
@@ -369,8 +367,7 @@ PlayerGUI::~PlayerGUI()
 void PlayerGUI::changeListenerCallback(juce::ChangeBroadcaster* source)
 {
     if (source == &thumbnail)
-        repaint(); // عشان نرسم الموجة لما تتحدث
-}
+        repaint(); 
 void PlayerGUI::mouseDown(const juce::MouseEvent& event)
 {
     if (fileLoaded)
