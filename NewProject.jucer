@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <JUCERPROJECT id="l6Jbwj" name="NewProject" projectType="guiapp" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
   <MAINGROUP id="MKwz5M" name="NewProject">
@@ -7,6 +8,15 @@
       <FILE id="oryFuR" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="XOYAve" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="WEphm0" name="MainComponent.cpp" compile="1" resource="0"
+=======
+<JUCERPROJECT id="OLH0Q5" name="NewProject" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="kSV0mV" name="NewProject">
+    <GROUP id="{64BC638B-8338-A61E-3BC6-5278E9BBC201}" name="Source">
+      <FILE id="WjKlqZ" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="f5oU0A" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="OCUjVz" name="MainComponent.cpp" compile="1" resource="0"
+>>>>>>> new-feature
             file="Source/MainComponent.cpp"/>
     </GROUP>
   </MAINGROUP>

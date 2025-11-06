@@ -1,4 +1,5 @@
 #pragma once
+<<<<<<< HEAD
 #include <JuceHeader.h>
 
 class PlayerAudio : public juce::AudioSource
@@ -42,3 +43,5 @@ private:
     juce::String album{ "Unknown" };
     double duration{ 0.0 };
 };
+=======
+>>>>>>> new-feature

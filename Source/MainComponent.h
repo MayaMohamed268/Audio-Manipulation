@@ -1,6 +1,10 @@
 #pragma once
 #include <JuceHeader.h>
 #include "PlayerGUI.h"
+<<<<<<< HEAD
+=======
+#include "../Builds/VisualStudio2022/PlayerGUI.h"
+>>>>>>> new-feature
 
 class MainComponent : public juce::AudioAppComponent
 {
@@ -16,8 +20,12 @@ public:
     void resized() override;
 
 private:
+<<<<<<< HEAD
     PlayerGUI playerGui;
     juce::AudioDeviceManager audioDeviceManager;
+=======
+    PlayerGUI playerGUI;
+>>>>>>> new-feature
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainComponent)
 };

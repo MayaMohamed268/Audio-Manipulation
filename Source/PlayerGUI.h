@@ -1,4 +1,5 @@
 #pragma once
+<<<<<<< HEAD
 #include <JuceHeader.h>
 #include "PlayerAudio.h"
 
@@ -57,3 +58,5 @@ private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PlayerGUI)
 };
+=======
+>>>>>>> new-feature
