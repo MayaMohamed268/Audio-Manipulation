@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Ignore Visual Studio temporary files and folders
 .vs/
 Builds/
@@ -23,14 +22,11 @@ Release/
 *.idb
 *.exp
 *.vsidx
-=======
-<<<<<<< HEAD
-Builds/
-.vs/
-=======
-.vs/
-Builds/
-.vs/
-Builds/
->>>>>>> new-feature
->>>>>>> origin/main
+
+# JUCE build files
+*.jucer.backup
+*.juce
+
+# OS-specific
+.DS_Store
+Thumbs.db
