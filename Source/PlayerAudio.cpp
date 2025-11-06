@@ -4,7 +4,7 @@ PlayerAudio::PlayerAudio()
 {
     formatManager.registerBasicFormats();
 
-    //جديد
+    
     resampleSource = std::make_unique<juce::ResamplingAudioSource>(&transportSource, false, 2);
 }
 
@@ -15,12 +15,12 @@ void PlayerAudio::prepareToPlay(int samplesPerBlockExpected, double sampleRate)
 {
     transportSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
 
-    //جديد 
+   
     resampleSource->prepareToPlay(samplesPerBlockExpected, sampleRate);
 }
 void PlayerAudio::getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill)
 {
-    resampleSource->getNextAudioBlock(bufferToFill);//جدديد
+    resampleSource->getNextAudioBlock(bufferToFill);
     if (loopSegment)
     {
         double current = transportSource.getCurrentPosition();
@@ -31,7 +31,7 @@ void PlayerAudio::getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferTo
 }
 void PlayerAudio::releaseResources()
 {
-    resampleSource->releaseResources(); //جديد
+    resampleSource->releaseResources(); 
 }
 bool PlayerAudio::loadFile(const juce::File& file)
 {
